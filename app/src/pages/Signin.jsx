@@ -4,20 +4,20 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
-export function Signup(props) {
+export function Signin (props) {
     const navigate = useNavigate()
 
-    const signUpUser = (event) => {
+    const signInUser = (event) => {
         event.preventDefault()
         const formdata = new FormData(event.target)
         const email = formdata.get("email")
         const password = formdata.get("password")
-        createUserWithEmailAndPassword(props.authapp, email, password)
-            .then((response) => navigate("/"))
-            .catch((error) => console.log(error))
+        signInWithEmailAndPassword( props.authapp, email, password )
+        .then ( ( response ) => navigate("/"))
+        .catch( (error) => console.log(error) )
 
     }
     return (
@@ -25,8 +25,8 @@ export function Signup(props) {
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <Form className="mt-4" onSubmit={(event) => signUpUser(event)}>
-                            <h2>Sign up for an account</h2>
+                        <Form className="mt-4" onSubmit={(event) => signInUser(event)}>
+                            <h2>Sign in to your account</h2>
                             <Form.Group>
                                 <Form.Label className="mt-3">Email</Form.Label>
                                 <Form.Control
@@ -44,7 +44,7 @@ export function Signup(props) {
                                 />
                             </Form.Group>
                             <Button type="submit" variant="dark" className="my-3 mx-auto d-block w-100">
-                                Sign up
+                                Sign in
                             </Button>
                         </Form>
                     </Col>
