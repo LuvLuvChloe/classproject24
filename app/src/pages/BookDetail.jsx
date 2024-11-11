@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect, useContext } from 'react'
 import { FirestoreContext } from '../contexts/FirestoreContext'
-import { dec, getDoc } from '@firebase/firestore'
+import { doc, getDoc } from '@firebase/firestore'
 
 export function BookDetail(props) {
     const [book, setBook] = useState()
@@ -36,12 +36,12 @@ export function BookDetail(props) {
                             {book.Title}
                         </h1>
                     </Col>
-                    <col md={6}>
-                        <img className="w-100" src={"/book_covers/" + book.cover} />
-                    </col>
-                    <col md={6}>
-                        <p>{book.Title} by {book.Authur}</p>
-                    </col>
+                    <Col md={6}>
+                        <img className="w-100" src={"/book_covers/" + book.Cover} />
+                    </Col>
+                    <Col md={6}>
+                        <p>{book.Title} by {book.Author} </p>
+                    </Col>
                 </Row>
             </Container>
         )

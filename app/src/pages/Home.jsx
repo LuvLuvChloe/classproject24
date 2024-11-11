@@ -47,7 +47,7 @@ export function Home(props) {
                     <Card.Body>
                         <Card.Title>{ book.Title }</Card.Title>
                         <Card.Text>
-                            A book by {book.Author}
+                            A book by { book.Author }
                         </Card.Text>
                         <Button as={Link} variant="primary" className="w-100" to={"/detail/" + book.id}>
                             View Detail
