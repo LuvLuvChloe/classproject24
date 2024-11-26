@@ -9,7 +9,7 @@ import { useContext, useState, useEffect } from 'react'
 
 import { collection, getDocs, updateDoc, doc } from 'firebase/firestore'
 
-export function ListLoan(props) {
+export function ListLoans(props) {
     const [loans, setLoans] = useState([])
 
     const auth = useContext(AuthContext)
